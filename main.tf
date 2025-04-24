@@ -97,7 +97,7 @@ resource "azurerm_linux_virtual_machine" "terraformvms" {
   location                        = azurerm_resource_group.tfrg.location
   resource_group_name             = azurerm_resource_group.tfrg.name
   network_interface_ids           = [azurerm_network_interface.tfni[count.index].id]
-  size                            = "Standard_B1s"
+  size                            = "Standard_B2s"
   admin_username                  = var.azure_user
   admin_password                  = var.azure_password
   disable_password_authentication = false
