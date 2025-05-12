@@ -3,6 +3,11 @@ variable "rhel_version" {
   default     = "RHEL9"
 }
 
+variable "ticket_number" {
+  description = "SNOW Ticket Number"
+  default     = ""
+}
+
 variable "azure_user" {
   description = "VM Username"
 }
