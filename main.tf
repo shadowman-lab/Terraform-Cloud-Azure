@@ -2,6 +2,12 @@ provider "azurerm" {
   features {}
 }
 
+resource "azurerm_marketplace_agreement" "redhat" {
+  publisher = "redhat"
+  offer     = "rhel-byos"
+  plan      = var.product_map[var.rhel_version]
+}
+
 resource "azurerm_resource_group" "tfrg" {
   name     = "shadowman-terraform-rg"
   location = "East US"
@@ -92,6 +98,7 @@ resource "azurerm_network_interface_security_group_association" "tfnga" {
 }
 
 resource "azurerm_linux_virtual_machine" "terraformvms" {
+  depends_on                      = [azurerm_marketplace_agreement.redhat]
   count                           = var.number_of_instances
   name                            = "${var.instance_name_convention}${count.index}.shadowman.dev"
   location                        = azurerm_resource_group.tfrg.location
