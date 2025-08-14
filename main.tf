@@ -101,7 +101,7 @@ resource "azurerm_linux_virtual_machine" "terraformvms" {
   admin_username                  = var.azure_user
   admin_password                  = var.azure_password
   disable_password_authentication = false
-  license_type                    = RHEL_BYOS
+  license_type                    = "RHEL_BYOS"
 
   source_image_reference {
     publisher = "RedHat"
