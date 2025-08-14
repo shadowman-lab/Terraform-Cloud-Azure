@@ -101,18 +101,13 @@ resource "azurerm_linux_virtual_machine" "terraformvms" {
   admin_username                  = var.azure_user
   admin_password                  = var.azure_password
   disable_password_authentication = false
+  license_type                    = RHEL_BYOS
 
   source_image_reference {
     publisher = "RedHat"
-    offer     = "rhel-byos"
+    offer     = "RHEL"
     sku       = var.product_map[var.rhel_version]
     version   = "latest"
-  }
-
-  plan {
-    name      = var.product_map[var.rhel_version]
-    product   = "rhel-byos"
-    publisher = "redhat"
   }
 
   os_disk {

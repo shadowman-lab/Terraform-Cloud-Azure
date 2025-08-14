@@ -19,9 +19,10 @@ variable "azure_password" {
 variable "product_map" {
   type = map(string)
   default = {
-    "RHEL7" = "rhel-lvm79"
-    "RHEL8" = "rhel-lvm810"
-    "RHEL9" = "rhel-lvm95"
+    "RHEL7" = "7-LVM"
+    "RHEL8" = "8-lvm-gen2"
+    "RHEL9" = "9-lvm-gen2"
+    "RHEL10" = "10-lvm-gen2"
   }
 }
 
